@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import CardComponent from "./CardComponent";
+import Navbar from "./Navbar/Navbar";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { blogData } from "../data/blog";
@@ -24,7 +25,8 @@ function CarouselComponent() {
     },
   };
   return (
-    <div className="App">
+    <React.Fragment>
+      <Navbar />
       <div className="m-8">
         <Carousel
           focusOnSelect={true}
@@ -41,7 +43,7 @@ function CarouselComponent() {
           ))}
         </Carousel>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 

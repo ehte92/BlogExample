@@ -1,7 +1,8 @@
 import React from "react";
 import moment from "moment";
-import { faEye, faTags, faClock } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import LocalOfferIcon from "@material-ui/icons/LocalOffer";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -39,36 +40,42 @@ function CardComponent(props) {
   const data = blogData.filter((el) => el.id === id);
   return (
     <>
-      <section className="text-gray-700 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap m-4 text-center">
-            <div className="h-full float-left mr-5 max-w-1/2 px-4 py-6 rounded-md border-2 border-green-500 transform transition duration-500 hover:scale-110">
-              <div className="text-base">{moment(data[0].date).year()}</div>
-              <h2>{moment(data[0].date).format("MMM DD")}</h2>
-              <div
-                className="w-full h-40 bg-no-repeat bg-contain bg-center "
-                style={{ backgroundImage: `url('${data[0].image}')` }}
-              ></div>
-              <div className="text-xs mt-4">
-                <FontAwesomeIcon icon={faTags} />
-                <span className="ml-4">{data[0].category}</span>
+      <div className="container">
+        <div className="post" onClick={handleClickOpen("paper")}>
+          <div className="header_post">
+            <img src={data[0].image} alt="" />
+          </div>
+
+          <div className="body_post">
+            <div className="post_content">
+              <h1>{data[0].title}</h1>
+              <p>{data[0].description}</p>
+
+              <div className="container_infos">
+                <div className="postedBy">
+                  <span>
+                    <AccessTimeIcon className="mr-1" />
+                    {data[0].date}
+                  </span>
+                  <span>
+                    <VisibilityIcon className="mr-1" />
+                    {data[0].views}
+                  </span>
+                </div>
+
+                <div className="container_tags">
+                  <span>tags</span>
+                  <div className="tags">
+                    <ul>
+                      <li>{data[0].category}</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <h5>{data[0].title}</h5>
-              <div className="text-xs text-justify">{data[0].description}</div>
-              <div className="text-xs mt-4">
-                <FontAwesomeIcon icon={faEye} />
-                <span className="ml-4">{data[0].views}</span>
-              </div>
-              <button
-                onClick={handleClickOpen("paper")}
-                className="btn btn-block text-gray-600 rounded-lg bg-white text-xs font-bold mt-4 p-2 border-2 border-green-500"
-              >
-                Read Bulletin
-              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <div>
         <Dialog
@@ -81,12 +88,12 @@ function CardComponent(props) {
           <DialogTitle id="scroll-dialog-title">{data[0].title}</DialogTitle>
           <DialogContent dividers={scroll === "paper"}>
             <div>
-              <FontAwesomeIcon icon={faClock} />
+              <AccessTimeIcon />
               <span className="ml-2">
                 {moment(data[0].date).format("MMM DD,YYYY")}
               </span>
               <div className="inline float-right">
-                <FontAwesomeIcon icon={faEye} />
+                <VisibilityIcon />
                 <span className="ml-2">{data[0].views}</span>
               </div>
             </div>
@@ -104,7 +111,7 @@ function CardComponent(props) {
               {data[0].content}
             </DialogContentText>
             <div className="float-right">
-              <FontAwesomeIcon icon={faTags} />
+              <LocalOfferIcon />
               <span className="ml-2">{data[0].category}</span>
             </div>
           </DialogContent>
