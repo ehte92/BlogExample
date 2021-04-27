@@ -14,6 +14,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import ImageShadow from "react-image-shadow";
 import "react-image-shadow/assets/index.css";
 import { blogData } from "../data/blog";
+import "./style.scss";
 
 function CardComponent(props) {
   const { id } = props;
