@@ -13,6 +13,10 @@ module.exports = {
     flex: {
       100: "1 1 100%",
     },
+    margin: {
+      "1/10": "10%",
+      "2/5": "5%",
+    },
     colors: {
       green: {
         light: "#78b893",

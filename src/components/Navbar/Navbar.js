@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { Nav, NavLink, Bars, NavMenu } from "./NavbarElements";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -70,15 +71,26 @@ const Navbar = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [isScroll, setIsScroll] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  React.useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const isTop = window.scrollY < 100;
+      if (isTop === isScroll) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+    });
+  }, []);
   return (
     <>
-      <Nav>
+      <Nav isScroll={isScroll}>
         <a href="/">
           <img
             src="img/thundercats--eps--vector-logo.png"
@@ -89,22 +101,22 @@ const Navbar = () => {
         <Bars onClick={handleDrawerOpen} />
 
         <NavMenu>
-          <NavLink to="/blogs" activeStyle>
+          <NavLink isScroll={isScroll} to="/blogs">
             Services
           </NavLink>
-          <NavLink to="/blogs" activeStyle>
+          <NavLink isScroll={isScroll} to="/blogs">
             How we work
           </NavLink>
-          <NavLink to="/blogs" activeStyle>
+          <NavLink isScroll={isScroll} to="/blogs">
             Technologies
           </NavLink>
-          <NavLink to="/blogs" activeStyle>
+          <NavLink isScroll={isScroll} to="/blogs">
             Cases
           </NavLink>
-          <NavLink to="/blogs" activeStyle>
+          <NavLink isScroll={isScroll} to="/blogs">
             Contact
           </NavLink>
-          <NavLink to="/blogs" activeStyle>
+          <NavLink isScroll={isScroll} to="/blogs">
             Blogs
           </NavLink>
         </NavMenu>

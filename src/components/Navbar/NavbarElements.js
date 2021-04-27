@@ -3,21 +3,22 @@ import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background: linear-gradient(90deg, #78b893, #193023);
+  background: ${(props) =>
+    props.isScroll ? "white" : "linear-gradient(90deg, #78b893, #193023)"};
   height: 85px;
   display: flex;
   justify-content: space-between;
   padding: 0.2rem calc((100vw - 1000px) / 2);
   z-index: 12;
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 100%;
+  // width: 100%;
   /* Third Nav */
   /* justify-content: flex-start; */
 `;
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: ${(props) => (props.isScroll ? "#000" : "#fff")};
   display: flex;
   align-items: center;
   text-decoration: none;

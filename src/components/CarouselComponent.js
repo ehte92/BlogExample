@@ -5,6 +5,9 @@ import Navbar from "./Navbar/Navbar";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { blogData } from "../data/blog";
+import Banner from "./Banner";
+import Footer from "./Footer";
+import BlogContent from "../pages/BlogContent";
 
 function CarouselComponent() {
   const responsive = {
@@ -27,7 +30,8 @@ function CarouselComponent() {
   return (
     <React.Fragment>
       <Navbar />
-      <div className="m-8">
+      <Banner className="m-8" />
+      <div style={{ background: "#e5eee9" }} className="m-8">
         <Carousel
           focusOnSelect={true}
           swipeable={true}
@@ -43,6 +47,8 @@ function CarouselComponent() {
           ))}
         </Carousel>
       </div>
+      <BlogContent />
+      <Footer />
     </React.Fragment>
   );
 }
