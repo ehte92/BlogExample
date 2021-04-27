@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import HomeContent from "./pages/HomeContent";
-import BlogContent from "./pages/BlogContent";
 import BlogPage from "./components/BlogPage";
 
 function App() {
