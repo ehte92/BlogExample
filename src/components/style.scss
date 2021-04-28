@@ -373,6 +373,16 @@ footer {
   .content-particles {
     margin-top: -75px;
   }
+  .conntent {
+    flex-direction: column;
+    // margin: 0 0 0 10%;
+  }
+  .content-particles {
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    margin: 0 0 10%;
+  }
 }
 @media screen and (max-width: 500px) {
   .content-particles {

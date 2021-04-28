@@ -16,8 +16,8 @@ function Banner() {
           }}
         />
       </Background>
-      <div className="min-h-screen h-screen flex">
-        <div className="w-4/5 max-w-full box-border flex relative justify-around flex-row h-full mt-4 mb-0 mr-0 ml-1/10 z-10 -top-14">
+      <div className="min-h-screen h-screen flex conntent">
+        <div className="w-4/5 max-w-full box-border flex relative justify-around h-full mt-4 mb-0 mr-0 ml-1/10 z-10 -top-14 conntent">
           <div className="flex text-2xl text-white justify-center items-center">
             <div className="float-left">
               <h1

@@ -5,6 +5,7 @@ import React from "react";
 import "./blogStyle.css";
 import Navbar from "./Navbar/Navbar";
 import { blogData } from "../data/blog";
+import Footer from "./Footer";
 
 function BlogPage() {
   return (
@@ -38,6 +39,7 @@ function BlogPage() {
           </article>
         ))}
       </div>
+      <Footer />
     </>
   );
 }
